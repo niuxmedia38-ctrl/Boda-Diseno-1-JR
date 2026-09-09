@@ -1,4 +1,4 @@
-/* Edita la fecha aquÃ­. -06:00 corresponde a la hora de San Miguel de Allende. */
+/* Edita la fecha aquí. -06:00 corresponde a la hora de San Miguel de Allende. */
 (function () {
   'use strict';
   const eventDate = new Date('2027-10-17T16:00:00-06:00').getTime();
@@ -50,7 +50,7 @@
         target.addEventListener('blur', function () { target.removeAttribute('tabindex'); }, { once: true });
       }
       target.focus({ preventScroll: true });
-      // pushState tambiÃ©n evita que el navegador dÃ© un salto al cambiar el hash.
+      // pushState también evita que el navegador dé un salto al cambiar el hash.
       try { if (window.location.hash !== hash) window.history.pushState(null, '', hash); } catch (error) { /* Archivos locales con historial restringido. */ }
     }
     function step(time) {
@@ -73,7 +73,7 @@
     document.querySelectorAll('[data-countdown]').forEach(function (element, index) {
       element.textContent = String(values[index]).padStart(2, '0');
     });
-    if (seconds === 0) document.getElementById('countdown-title').textContent = 'LlegÃ³ nuestro dÃ­a';
+    if (seconds === 0) document.getElementById('countdown-title').textContent = 'Llegó nuestro día';
     return seconds;
   }
   updateCountdown();
@@ -84,8 +84,8 @@
   function setMusicState(playing) {
     musicButton.classList.toggle('is-playing', playing);
     musicButton.setAttribute('aria-pressed', String(playing));
-    musicButton.setAttribute('aria-label', playing ? 'Pausar mÃºsica de fondo' : 'Reproducir mÃºsica de fondo');
-    musicLabel.textContent = playing ? 'PAUSAR' : 'MÃšSICA';
+    musicButton.setAttribute('aria-label', playing ? 'Pausar música de fondo' : 'Reproducir música de fondo');
+    musicLabel.textContent = playing ? 'PAUSAR' : 'MÚSICA';
   }
   async function startMusic() {
     const request = ++musicRequest;
@@ -152,4 +152,3 @@
     }, reducedMotion.matches ? 0 : 4500);
   });
 })();
-
