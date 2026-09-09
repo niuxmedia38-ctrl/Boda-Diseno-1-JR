@@ -48,7 +48,7 @@
 @media(max-height:550px) and (orientation:landscape){.entrance{padding:12px}.entrance-names{font-size:32px}.envelope-button{width:300px}}
 @media(prefers-reduced-motion:reduce){.entrance,.envelope-button,.entrance-names,.invitation-open #invitation{animation:none!important}.envelope-svg{transition:none}}
 
-/* El header y la portada comparten una sola fotografÃ­a. */
+/* El header y la portada comparten una sola fotografía. */
 .hero .masthead{position:absolute;inset:0 0 auto;z-index:3;height:90px;max-width:none;margin:0;padding:0 28px;gap:18px}
 .hero .masthead>span{display:none}
 .hero .masthead>a:last-child{font-size:11px;letter-spacing:1.5px}
