@@ -9,6 +9,7 @@
   const musicButton = document.getElementById('music-toggle');
   const musicLabel = document.getElementById('music-label');
   const audioError = document.getElementById('audio-error');
+  const rsvpForm = document.getElementById('rsvp-form');
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
   let fadeTimer;
   let opening = false;
@@ -119,6 +120,21 @@
     setMusicState(false);
     audioError.hidden = false;
   });
+
+  rsvpForm.addEventListener('submit', function (event) {
+    event.preventDefault();
+    if (!rsvpForm.reportValidity()) return;
+    const data = new FormData(rsvpForm);
+    const message = [
+      'Confirmación de asistencia — Boda de Alejandro e Isabela',
+      '',
+      'Nombre: ' + data.get('name'),
+      'Respuesta: ' + data.get('attendance'),
+      'Asistentes: ' + data.get('guests'),
+      data.get('message') ? 'Mensaje: ' + data.get('message') : ''
+    ].filter(Boolean).join('\n');
+    window.open('https://wa.me/?text=' + encodeURIComponent(message), '_blank', 'noopener,noreferrer');
+  });
   function revealSections() {
     if (!('IntersectionObserver' in window) || reducedMotion.matches) return;
     const observer = new IntersectionObserver(function (entries) {
@@ -152,3 +168,4 @@
     }, reducedMotion.matches ? 0 : 4500);
   });
 })();
+
